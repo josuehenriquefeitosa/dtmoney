@@ -3,6 +3,7 @@ import { GlobalStyle } from './styles/global.ts'
 import { Header } from "./components/Header"
 import { Dashboard } from './components/Dashboard/index.tsx'
 import { NewTransactionModal } from './components/NewTransactionModal/index.tsx'
+import { TransactionsProvider } from './TransactionsContext.tsx'
 
 
 
@@ -19,7 +20,7 @@ export const App = () => {
 	}
 
   return (
-    <>
+    <TransactionsProvider>
       <GlobalStyle />
       <Header onOpenNewTransaction={handleOpenNewTransactionModal}/>
       <Dashboard /> 
@@ -28,7 +29,7 @@ export const App = () => {
 					onRequestClose={handleCloseNewTransactionModal}
 				>
 			</NewTransactionModal>
-    </>
+    </TransactionsProvider>
   )
 }
 
